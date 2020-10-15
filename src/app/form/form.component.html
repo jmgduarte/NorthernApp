@@ -1,0 +1,84 @@
+<div class="row breadcums"></div>
+<div class="row">
+    <div class="col-xl-12 col-sm-12">
+        <p>{{paragraph}}</p>
+    </div>
+</div>
+<div class="row breadcums"></div>
+
+<div [hidden]="submitted">
+    <form (ngSubmit)="onSubmit()" #defaultForm="ngForm">
+        <div class="row">
+            <div class="col-xl-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12 errorMessage">
+                            <span [hidden]="emailAddress.valid || emailAddress.pristine || emailAddress.required">Please enter a valid email address</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12">
+                            <input type="email" class="form-control" id="emailAddress"
+                                [ngClass]="{'errorInput' : !(emailAddress.valid || emailAddress.pristine) }"
+                                required = "true"
+                                [(ngModel)]="model.emailAddress" name="emailAddress"
+                                #emailAddress="ngModel"
+                                placeholder="{{emailAddressLeyend}}"
+                                email="true">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12 errorMessage">
+                            <span [hidden]="interest.valid || interest.pristine" class="alert alert-danger">interest is required</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-12 col-sm-12">
+                            <select class="form-control" id="interest"
+                                    required
+                                    [(ngModel)]="model.interest" name="interest"
+                                    #interest="ngModel">
+                                <option value="" disabled selected>{{interestLeyend}}</option>
+                                <option *ngFor="let int of interests" [value]="int">{{int}}</option>
+                            </select>
+                        </div>
+                    </div>
+                  </div>          
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xl-12 col-sm-12 col-xs-12">
+                <button type="submit" class="btn col-xl-12 col-sm-12 col-xs-12" 
+                    [ngClass]="{'btn-red' : buttonActivated, 'btn-white' : !buttonActivated }"
+                    [disabled]="!defaultForm.form.valid && buttonActivated">
+                    <span [hidden]="!buttonActivated">Sign Up Now</span>
+                    <img [hidden]="buttonActivated" src="/assets/img/loading.gif" id="buttonSubmitImg" />
+                </button>
+            </div>
+        </div>
+    </form>
+  </div>
+
+  <div [hidden]="!submitted" class="row">
+    <div class="col-xl-12 col-sm-12 col-xs-12">
+      <div class="row">
+          <div class="col-xl-12 col-sm-12 col-xs-12">
+            You have submitted the following information:
+          </div>
+      </div>
+      <div class="row">
+          <div class="col-xl-3 col-sm-3 col-xs-3">Email Address: </div>
+          <div class="col-xl-9 col-sm-9 col-xs-9"> {{ model.emailAddress }}</div>
+      </div>
+      <div class="row">
+          <div class="col-xl-3 col-sm-3 col-xs-3">Interest: </div>
+          <div class="col-xl-9 col-sm-9 col-xs-9"> {{ model.interest }}</div>
+      </div>
+    </div>
+</div>
+
+  

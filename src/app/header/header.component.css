@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+#header{
+    font-family: Montserrat;
+    font-weight: bold;
+    font-size: 65px;
+    color: #ffffff;
+}
+#line{
+    height: 5px;
+}
+
+#line .red{
+    background-color: #d02035;
+}

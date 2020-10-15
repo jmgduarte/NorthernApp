@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+.breadcums{
+    height: 30px;
+}
+
+.row [class*="col-"], .btn-red{
+    color: #ffffff;
+    font-family: Merriweather;
+    font-size: 20px;
+}
+
+.btn-red{
+    background-color: #d02035;
+}
+
+.btn-white{
+    background-color: #ffffff;
+}
+
+.errorMessage{
+    color: #ffffff;
+    font-family: Merriweather;
+    font-size: 12px;
+    text-align: right;
+    height: 16px;
+}
+
+.errorInput{
+    border-color: #d02035;
+    border-width: 3px;
+}
+
+#buttonSubmitImg{
+    width: 63px;
+    height: 42px;
+}
