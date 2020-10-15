@@ -4,7 +4,7 @@
     height: 30px;
 }
 
-.row [class*="col-"], .btn-red{
+.row [class*="col-"] p, .btn-red, #confirmationMessage{
     color: #ffffff;
     font-family: Merriweather;
     font-size: 20px;
